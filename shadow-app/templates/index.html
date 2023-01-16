@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+
+<html>  <head>
+    <title>API Documentation</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Endpoint</h2>
+      <p>The endpoint for the API is <code>/shadowban/&lt;username&gt;</code> where <code>&lt;username&gt;</code> is the Reddit username you want to check.</p>
+      <h2>Parameters</h2>
+      <p>The API accepts the following parameters:</p>
+      <ul>
+        <li>username (required): The Reddit username you want to check.</li>
+        <li>full (optional): If set to 1, the API will return additional information about the user, including join date, post karma, comment karma, and whether or not they have a verified email.</li>
+      </ul>
+      <h2>Responses</h2>
+      <p>The API will return one of the following responses:</p>
+      <ul>
+        <li>If the user is shadowbanned: <code>{"is_shadowbanned": true}</code></li>
+        <li>If the user is not shadowbanned: <code>{"is_shadowbanned": false}</code> (if full parameter is not set) or <code>{"is_shadowbanned": false, "username": "example", "join_date": "2022-01-01 12:00:00", "post_karma": 1000, "comment_karma": 500, "verified_mail": true}</code> (if full parameter is set to 1).</li>
+        <li>If the username is invalid: <code>{"error": "Invalid username"}</code></li>
+        <li>If there is a server error: <code>{"error": "Internal Server Error"}</code></li>
+      </ul>
+      <h2>Examples</h2>
+      <h3>cURL</h3>
+      <p>To check if a user is shadowbanned using cURL:</p>
+<pre>
+curl -X GET http://localhost:5000/shadowban/example
+</pre>
+      <p>To check if a user is shadowbanned and get additional information using cURL:</p>
+<pre>
+curl -X GET "http://localhost:5000/shadowban/example?full=1"
+</pre>
+      <h3>Postman</h3>
+      <p>To check if a user is shadowbanned using Postman:</p>
+      <ol>
+        <li>Create a new GET request to <code>http://localhost:5000/shadowban/example</code></li>
+        <li>Send the request</li>
+      </ol>
+      <p>To check if a user is shadowbanned and get additional information using Postman:</p
+
+<ol>
+        <li>Create a new GET request to <code>http://localhost:5000/shadowban/example?full=1</code></li>
+        <li>Send the request</li>
+      </ol>
+    </div>
+    <br><br><br>
+  {% include 'footer.html' %}
+  </body>
+</html>
