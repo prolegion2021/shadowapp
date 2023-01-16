@@ -14,7 +14,9 @@ pipeline {
         stage('Test') {
             steps {
                 sh 'ls'
-                sh 'docker run -t shadowapp:latest python unit_test.py'
+                sh 'cd shadow-app'
+                sh 'ls'
+                sh 'docker run -t shadowapp:latest python shadow-app/unit_test.py'
             }
         }
         stage('Create Image') {
