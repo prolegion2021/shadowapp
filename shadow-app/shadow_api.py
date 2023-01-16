@@ -2,6 +2,7 @@ import re
 from flask import Flask, jsonify, request, render_template
 import requests
 import datetime
+from waitress import serve
 
 username = 'TrainingPick3936'
 version = 'v1.0.0'
@@ -50,5 +51,6 @@ def index():
     return render_template('index.html')
 
 if __name__ == '__main__':
-    print('Server started!!!')
-    app.run(debug=False)
+    print("Starting server...")
+    serve(app, host="0.0.0.0", port=5000)
+    # app.run(debug=False)
