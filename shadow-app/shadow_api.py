@@ -4,8 +4,11 @@ import requests
 import datetime
 import env
 
+
+username = 'TrainingPick3936'
+version = 'v1.0.0'
 app = Flask(__name__)
-USER_AGENT = f'ShadowlerApp:{env.version} (by /u/{env.username})'
+USER_AGENT = f'ShadowlerApp:{version} (by /u/{username})'
 headers = {
     "User-Agent": USER_AGENT,
 }

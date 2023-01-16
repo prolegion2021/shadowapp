@@ -1,5 +1,0 @@
-CLIENT_ID = '0A3bWHwqdjLPkhf9YmXPGQ'
-CLIENT_SECRET = 'Vol8Vq3q8ORgLOplmFTLtHA0oTE9SQ'
-username = 'TrainingPick3936'
-password = 'sgBvt85bDBrjCDG'
-version = 'v1.0.0'
