@@ -2,8 +2,6 @@ import re
 from flask import Flask, jsonify, request, render_template
 import requests
 import datetime
-import env
-
 
 username = 'TrainingPick3936'
 version = 'v1.0.0'
