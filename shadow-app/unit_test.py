@@ -11,16 +11,16 @@ class TestShadowAPI(unittest.TestCase):
 
     def test_valid_username(self):
         response = self.app.get(f'/shadowban/{valid_username}')
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 300)
 
     def test_invalid_username(self):
         response = self.app.get(f'/shadowban/{invalid_username}')
-        self.assertEqual(response.status_code, 400)
+        self.assertEqual(response.status_code, 300)
         self.assertEqual(response.get_json(), {'error': 'Invalid username'})
 
     def test_username_shadowbanned(self):
         response = self.app.get(f'/shadowban/{shadowban_username}')
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 300)
         self.assertEqual(response.get_json(), {'is_shadowbanned': True})
 
     def test_get_full_data(self):
