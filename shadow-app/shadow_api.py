@@ -50,10 +50,10 @@ def reddit_user(username):
 @app.route('/')
 def index():
     return render_template('index.html')
-
-@app.route('/contacts')
-def index():
-    return render_template('contacts.html')
+#
+# @app.route('/contacts')
+# def index():
+#     return render_template('contacts.html')
 
 if __name__ == '__main__':
     print("Starting Prod API server...")
