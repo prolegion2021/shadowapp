@@ -5,7 +5,7 @@ FROM python:3.10-slim-buster
 WORKDIR /shadow-app
 
 # Copy the requirements file into the container
-COPY requirements.txt *.py.
+COPY requirements.txt .
 
 # Install the required packages
 RUN pip install --no-cache-dir -r requirements.txt
