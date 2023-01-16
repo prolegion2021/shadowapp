@@ -2,6 +2,7 @@ import unittest
 from unittest import mock
 import shadow_api
 
+
 valid_username = 'pyreporter'
 invalid_username = 'pyrepor*(&08yg880)Yter123'
 shadowban_username = 'FlashyInsurance1337'
