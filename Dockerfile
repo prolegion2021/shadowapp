@@ -17,4 +17,4 @@ COPY . .
 EXPOSE 5000
 
 # Run the command to start the application
-CMD ["python", "shadow_api.py"]
+CMD ["python", "shadow-app/shadow_api.py"]
