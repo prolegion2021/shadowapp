@@ -52,9 +52,9 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/contact')
-def contact():
-    return render_template('contacts.html')
+# @app.route('/contact')
+# def contact():
+#     return render_template('contacts.html')
 
 
 if __name__ == '__main__':
