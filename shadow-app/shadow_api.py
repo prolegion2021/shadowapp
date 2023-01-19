@@ -3,6 +3,7 @@ from flask import Flask, jsonify, request, render_template
 import requests
 import datetime
 from waitress import serve
+# from flask_cors import CORS, cross_origin
 
 
 username = 'TrainingPick3936'
@@ -52,12 +53,16 @@ def index():
     return render_template('index.html')
 
 
-# @app.route('/contact')
-# def contact():
-#     return render_template('contacts.html')
+# create route for /script Response format text
+# @app.route('/script')
+# def script():
+#     jsonResp = {'url': "https://old.reddit.com"}
+#     print(jsonify(jsonResp))
+#     return jsonify(jsonResp)
 
 
 if __name__ == '__main__':
     print("Starting Prod API 2000 server...")
+    # CORS(app)
     serve(app, host="0.0.0.0", port=5000)
     # app.run(debug=False)
