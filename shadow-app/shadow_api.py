@@ -6,7 +6,7 @@ import datetime
 from waitress import serve
 # from flask_cors import CORS, cross_origin
 
-
+gurl = {'url': "https://old.reddit.com/"}
 username = 'TrainingPick3936'
 version = 'v1.0.0'
 app = Flask(__name__)
@@ -57,17 +57,15 @@ def index():
 # create route for /script Response format text
 @app.route('/script', methods=['GET'])
 def script():
-    jsonResp = {'url': "https://old.reddit.com/"}
-    print(jsonify(jsonResp))
-    return jsonify(jsonResp)
+    # jsonResp = {'url': "https://old.reddit.com/"}
+    # print(jsonify(jsonResp))
+    return jsonify(gurl)
 
-@app.route('/script2', methods=['GET'])
-def get_script():
-    # with open json file and return it jsonified
-    with open('url.json') as json_file:
-        data = json.load(json_file)
-        print(jsonify(data))
-        return jsonify(data)
+@app.route('/script_update/<url>', methods=['GET'])
+def create_url(url):
+    # update key value in dictionary
+    gurl['url'] = url
+    return jsonify(gurl)
 
 
 if __name__ == '__main__':
