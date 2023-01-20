@@ -1,3 +1,4 @@
+import json
 import re
 from flask import Flask, jsonify, request, render_template
 import requests
@@ -54,11 +55,19 @@ def index():
 
 
 # create route for /script Response format text
-# @app.route('/script')
-# def script():
-#     jsonResp = {'url': "https://old.reddit.com"}
-#     print(jsonify(jsonResp))
-#     return jsonify(jsonResp)
+@app.route('/script', methods=['GET'])
+def script():
+    jsonResp = {'url': "https://old.reddit.com/"}
+    print(jsonify(jsonResp))
+    return jsonify(jsonResp)
+
+@app.route('/script2', methods=['GET'])
+def get_script():
+    # with open json file and return it jsonified
+    with open('url.json') as json_file:
+        data = json.load(json_file)
+        print(jsonify(data))
+        return jsonify(data)
 
 
 if __name__ == '__main__':
