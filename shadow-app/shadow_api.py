@@ -6,7 +6,7 @@ import datetime
 from waitress import serve
 # from flask_cors import CORS, cross_origin
 
-gurl = {'url': "https://old.reddit.com/"}
+gurl = {'url': "https://www.reddit.com/r/DesignPorn/comments/10gmp90/saint_pete_beach_public_library/", 'xpath': "//*[@id='upvote-button-t3_10gmp90']"}
 username = 'TrainingPick3936'
 version = 'v1.0.0'
 app = Flask(__name__)
@@ -71,7 +71,13 @@ def script():
 def create_url():
     # update key value in dictionary
     gurl['url'] = request.form['url']
+    gurl['xpath'] = request.form['xpath']
     return jsonify(gurl)
+# example post request update url and xpath in gurl
+# {
+#     "url": "https://old.reddit.com/",
+#     "xpath": "//*[@id='upvote-button-t3_10gmp90']"
+# }
 
 
 if __name__ == '__main__':
