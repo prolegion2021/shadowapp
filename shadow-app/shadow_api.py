@@ -61,10 +61,16 @@ def script():
     # print(jsonify(jsonResp))
     return jsonify(gurl)
 
-@app.route('/script_update/<url>', methods=['GET'])
-def create_url(url):
+# @app.route('/script_update/<url>', methods=['POST'])
+# def create_url(url):
+#     # update key value in dictionary
+#     gurl['url'] = url
+#     return "DOne"
+# create route for post request update url in gurl
+@app.route('/script_update', methods=['POST'])
+def create_url():
     # update key value in dictionary
-    gurl['url'] = url
+    gurl['url'] = request.form['url']
     return jsonify(gurl)
 
 
